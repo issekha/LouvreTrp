@@ -1,7 +1,11 @@
 louvre_trp_homepage:
     path:     /
     defaults: { _controller: LouvreTrpBundle:Plateform:index }
-	
+
 louvre_trp_step1:
-    path:    /step1
-	defaults: { _controller: LouvreTrpBundle:Plateform:step1 }
+    path:    /step/1
+    defaults: { _controller: LouvreTrpBundle:Plateform:step1 }
+
+louvre_trp_step2:
+    path:    /step/2
+    defaults: { _controller: LouvreTrpBundle:Plateform:step2}

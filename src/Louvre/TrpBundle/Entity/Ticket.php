@@ -41,7 +41,11 @@ class Ticket
      * @ORM\Column(name="ttype", type="boolean")
      */
     private $ttype;
-
+	
+	public function __construct()
+	{
+		$this->date = new \Datetime();
+	}
 
     /**
      * Get id

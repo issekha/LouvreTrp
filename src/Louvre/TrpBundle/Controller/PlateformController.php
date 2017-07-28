@@ -4,6 +4,9 @@ namespace Louvre\TrpBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
+use Louvre\TrpBundle\Model\TicketModel;
+use Louvre\TrpBundle\Form\TicketType;
+use Symfony\Component\HttpFoundation\Request;
 
 class PlateformController extends Controller
 {
@@ -12,10 +15,10 @@ class PlateformController extends Controller
         return $this->render('LouvreTrpBundle:Plateform:index.html.twig');
     }
 	
-	public function step1Action()
+	public function step1Action(Request $request)
 	{
 		$ticket = new TicketModel();
-        $ticket->setDate(new \DateTime());
+        $ticket->setTdate(new \DateTime());
         $form = $this->get('form.factory')->create(TicketType::class, $ticket);
         if ($request->isMethod('POST')) {
             $form->handleRequest($request);
@@ -30,5 +33,32 @@ class PlateformController extends Controller
             'form' => $form->createView(),
         ));
 	}
+	
+	public function step2Action(Request $request)
+	{
+		$session = $request->getSession();
+        $ticket = $request->getSession()->get('Ticket');
+        if ($ticket==null) {
+            return $this->redirectToRoute('louvre_trp_homepage');
+        }
+		$visitor = new VisitorTicketModel($ticket->getTnbrs());
+		
+		$form = $this->get('form.factory')->create(Step2Type::class, $visitor);
+		if ($request->isMethod('POST')) {
+            $form->handleRequest($request);
+
+            if ($form->isValid()) {
+                $data = $form->getData();
+                $session->set('Step2', $data);
+            }
+
+            return $this->redirectToRoute('louvre_trp_step3');
+        }
+        return $this->render('LouvreTrpBundle:Plateform:step2.html.twig', array(
+            'visitorTicket' => $visitor,
+            'form' => $form->createView(),
+		));
+	}
+	
 	
 }
