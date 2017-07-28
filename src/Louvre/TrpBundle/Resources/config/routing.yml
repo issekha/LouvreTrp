@@ -1,0 +1,3 @@
+louvre_trp_homepage:
+    path:     /
+    defaults: { _controller: LouvreTrpBundle:Plateform:index }

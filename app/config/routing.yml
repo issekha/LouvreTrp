@@ -1,0 +1,7 @@
+louvre_trp:
+    resource: "@LouvreTrpBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
