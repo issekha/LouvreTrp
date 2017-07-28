@@ -1,0 +1,44 @@
+body { 
+    padding-top: 50px; 
+}
+
+.footer {
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+    text-align: center;
+}
+.articleTitle:hover, .articleTitle:focus {
+    text-decoration: none;
+}
+.adminTable {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.view {
+    /* The image used */
+    background-image: url("../images/mdl_cover.jpg");
+
+    /* Full height */
+    height: 100%; 
+
+    /* Center and scale the image nicely */
+   
+    background-size: cover;
+      z-index: 1;
+	padding-top: 15%;
+
+}
+.jumbotron {
+    color: #fff;
+    background-color: rgba(0, 0, 255, 0);
+    
+    
+    /* tiré de la moitié de sa propre hauteur */
+}
+
+h1, .well,.row,.form-group, h3{
+	text-align: center;
+}
+ul{
+	list-style:none;
+}
