@@ -46,6 +46,16 @@ class TicketType extends AbstractType
 			->add('suivant', 	SubmitType::class)
 			;
     }
+	
+	/**
+     * {@inheritdoc}
+     */
+    public function configureOptions(OptionsResolver $resolver)
+    {
+        $resolver->setDefaults(array(
+            'data_class' => 'Louvre\TrpBundle\Model\TicketModel'
+        ));
+    }
     
     
 }

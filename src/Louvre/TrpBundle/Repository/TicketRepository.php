@@ -10,4 +10,16 @@ namespace Louvre\TrpBundle\Repository;
  */
 class TicketRepository extends \Doctrine\ORM\EntityRepository
 {
+	public function findByDate($tdate)
+    {
+        $qb = $this
+            ->createQueryBuilder('a')
+            ->where('a.tdate = :dtate')
+            ->setParameter('tdate', $tdate)
+        ;
+        return $qb
+            ->getQuery()
+            ->getResult()
+            ;
+    }
 }

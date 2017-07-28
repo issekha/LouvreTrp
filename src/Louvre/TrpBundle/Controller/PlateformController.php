@@ -5,7 +5,9 @@ namespace Louvre\TrpBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Louvre\TrpBundle\Model\TicketModel;
+use Louvre\TrpBundle\Model\VisitorTicketModel;
 use Louvre\TrpBundle\Form\TicketType;
+use Louvre\TrpBundle\Form\Step2Type;
 use Symfony\Component\HttpFoundation\Request;
 
 class PlateformController extends Controller
