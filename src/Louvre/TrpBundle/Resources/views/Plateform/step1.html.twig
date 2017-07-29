@@ -26,6 +26,13 @@
 				<label class="required">Nombre de billets</label>
 				{{ form_widget(form.tnbrs, {'attr': {'required': 'required'}}) }}
 			</div>
+			<div>
+				{% if app.session.get('Ticket').getTtype == "true" %}
+					 A partir de 9h
+			   {% else %}
+					 A partir de 14h
+			   {% endif %}
+			</div>
 
 		</fieldset>
 		{{ form_widget(form._token) }}

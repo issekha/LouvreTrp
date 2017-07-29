@@ -26,8 +26,10 @@ class VisitorType extends AbstractType
             ->add('bDate', BirthdayType::class, array(
                     'label' => 'Date de naissance',
                     'format'=> 'ddMMMyyyy',
-                    'placeholder' => array(
-                        'year' => 'Année', 'month' => 'Mois', 'day' => 'Jour')
+                    'attr' =>[
+					'class'=>'js-datepicker',
+					'readonly' => 'readonly'
+				],
             ))
             ->add('Tarifreduit',       checkboxType::class, array(
                 'required' => false,

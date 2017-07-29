@@ -40,6 +40,11 @@ class PlateformController extends Controller
 	{
 		$session = $request->getSession();
         $ticket = $request->getSession()->get('Ticket');
+		$tticket = $request->getSession()->get('Ticket')->getTtype();
+		$tdate = explode($request->getSession()->get('Ticket')->getTdate());
+		if ($tticket=='true')&&($tdate[0]>=14){
+				return $this->redirectToRoute('louvre_trp_step1');
+			}
         if ($ticket==null) {
             return $this->redirectToRoute('louvre_trp_homepage');
         }
@@ -53,6 +58,7 @@ class PlateformController extends Controller
                 $data = $form->getData();
                 $session->set('Step2', $data);
             }
+			
 
             return $this->redirectToRoute('louvre_trp_step3');
         }
